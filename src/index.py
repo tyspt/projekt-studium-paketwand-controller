@@ -65,8 +65,6 @@ def update_ticker():
 
 if __name__ == '__main__':
     window = webview.create_window('pywebview-react boilerplate', entry, js_api=Api())
-    webview.windows[0].toggle_fullscreen()
-    
-    
+    # webview.windows[0].toggle_fullscreen()
     
     webview.start(update_ticker, debug=True)
