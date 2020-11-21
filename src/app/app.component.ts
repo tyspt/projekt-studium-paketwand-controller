@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,12 +7,4 @@ import { Component, HostListener } from '@angular/core';
 })
 export class AppComponent {
   title = 'projekt-studium-paketwand-controller';
-
-  constructor() {
-  }
-
-  @HostListener('window:pywebviewready', ['$event'])
-  onPywebviewReady() {
-
-  }
 }

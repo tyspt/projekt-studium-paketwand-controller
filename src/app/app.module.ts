@@ -7,10 +7,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { PackageSearchComponent } from './package-search/package-search.component';
+import { HompageComponent } from './hompage/hompage.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PackageSearchComponent,
+    HompageComponent
   ],
   imports: [
     BrowserModule,

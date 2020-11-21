@@ -1,7 +1,14 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 
-const routes: Routes = [];
+import { HompageComponent } from './hompage/hompage.component';
+import { PackageSearchComponent } from './package-search/package-search.component';
+
+const routes: Routes = [
+  { path: '', component: HompageComponent },
+  { path: 'search/inbound', component: PackageSearchComponent },
+  { path: 'search/outbound', component: PackageSearchComponent },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
