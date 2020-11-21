@@ -48,7 +48,10 @@ cover/*
 MANIFEST
 
 # Per-project virtualenvs
-.venv*/
+*venv*
+
+# Project specific build folder
+gui
 
 # ########################### Following entries are for Angular & Node.js ########################### 
 # compiled output
