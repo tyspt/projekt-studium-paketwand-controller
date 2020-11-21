@@ -64,4 +64,4 @@ entry = get_entrypoint()
 if __name__ == '__main__':
     window = webview.create_window('Projektstudium Paketwand Controller', entry, js_api=Api(), fullscreen=True)
     # webview.start(update_ticker, debug=True)
-    webview.start()
+    webview.start(http_server=True)
