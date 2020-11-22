@@ -1,10 +1,10 @@
 # projekt-studium-paketwand-controller
 
-This is the controller script running on offline package stations for the Projektstudium course at OTH Regensburg in WiSe 20/21, which aims to add more transparency to the logistic processes at a local company in Regensburg.
+This is the controller Application running on offline package stations powered by Raspberry Pi for the Projektstudium course at OTH Regensburg in WiSe 20/21, which aims to add more transparency to the logistic processes at a local company in Regensburg.
 
-This project uses a common python web wrapper called [pywebview](https://github.com/r0x0r/pywebview) which enables us building python GUI with web technologies, the structure is modified from another starter project: [pywebview-react-boilerplate](https://github.com/r0x0r/pywebview-react-boilerplate). 
+This project uses a populer python web wrapper called [pywebview](https://github.com/r0x0r/pywebview) which enables us building python GUI with web technologies (Angular in our case) without losing system level control, the structure of this project is modified from [pywebview-react-boilerplate](https://github.com/r0x0r/pywebview-react-boilerplate).
 
-Follow the instructions below to get started:
+In order to get started, please follow the instructions below:
 
 ## Requirements
 First make sure you have the following dependencies installed before proceeding:
@@ -46,3 +46,5 @@ To start a development server (only for testing frontend code).
 ``` bash
 npm run dev
 ```
+
+For more details please read the [official documentation of pywebview](https://pywebview.flowrl.com/guide/).
