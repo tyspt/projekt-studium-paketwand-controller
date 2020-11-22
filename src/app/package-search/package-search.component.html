@@ -1,8 +1,13 @@
-<form class="form">
-  <mat-form-field class="search-field">
-    <input type="text" matInput placeholder="Package Tracking Number or Your Name">
+<button mat-icon-button class="pacakge-search-back" routerLink="/">
+  <mat-icon>arrow_back</mat-icon>
+</button>
+<form class="pacakge-search-form">
+  <mat-form-field class="pacakge-search-field">
+    <input type="text" matInput placeholder="Package Tracking Number or Your Name" [value]="value"
+      (input)="onInputChange($event)">
     <button mat-button matSuffix mat-icon-button>
       <mat-icon>search</mat-icon>
     </button>
   </mat-form-field>
 </form>
+<div class="simple-keyboard"></div>
