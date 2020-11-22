@@ -1,5 +1,3 @@
-# projekt-studium-paketwand-controller
-
 This is the controller Application running on offline package stations powered by Raspberry Pi for the Projektstudium course at OTH Regensburg in WiSe 20/21, which aims to add more transparency to the logistic processes at a local company in Regensburg.
 
 This project uses a populer python web wrapper called [pywebview](https://github.com/r0x0r/pywebview) which enables us building python GUI with web technologies (Angular in our case) without losing system level control, the structure of this project is modified from [pywebview-react-boilerplate](https://github.com/r0x0r/pywebview-react-boilerplate).
