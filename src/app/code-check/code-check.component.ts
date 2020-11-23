@@ -69,7 +69,11 @@ export class CodeCheckComponent implements OnInit {
   };
 
   onSubmit() {
-    this.api.unlock_door();
+    if (this.api) {
+      this.api.unlock_door();
+    } else {
+      alert('Python api not available!')
+    }
     this.router.navigate(['/']);
   }
 }
