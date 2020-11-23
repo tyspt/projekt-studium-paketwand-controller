@@ -8,7 +8,7 @@ import Keyboard from 'simple-keyboard';
   encapsulation: ViewEncapsulation.None,
   templateUrl: './package-search.component.html',
   styleUrls: [
-    '../../../node_modules/simple-keyboard/build/css/index.css',
+    '/node_modules/simple-keyboard/build/css/index.css',
     './package-search.component.scss']
 })
 export class PackageSearchComponent implements OnInit, AfterViewInit {

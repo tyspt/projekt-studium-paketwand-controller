@@ -10,7 +10,7 @@ import { PywebviewService } from '../../services/pywebview.service';
   encapsulation: ViewEncapsulation.None,
   templateUrl: './code-check.component.html',
   styleUrls: [
-    '../../../node_modules/simple-keyboard/build/css/index.css',
+    '/node_modules/simple-keyboard/build/css/index.css',
     './code-check.component.scss',
   ]
 })
