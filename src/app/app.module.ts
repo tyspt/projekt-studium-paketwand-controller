@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
@@ -8,6 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { CodeCheckComponent } from './code-check/code-check.component';
 import { HompageComponent } from './hompage/hompage.component';
 import { PackageSearchComponent } from './package-search/package-search.component';
 
@@ -15,12 +17,14 @@ import { PackageSearchComponent } from './package-search/package-search.componen
   declarations: [
     AppComponent,
     PackageSearchComponent,
-    HompageComponent
+    HompageComponent,
+    CodeCheckComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    FormsModule,
     MatCardModule,
     MatButtonModule,
     MatIconModule,

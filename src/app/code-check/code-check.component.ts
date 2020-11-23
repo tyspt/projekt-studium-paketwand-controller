@@ -4,18 +4,19 @@ import { Router } from '@angular/router';
 import Keyboard from 'simple-keyboard';
 
 @Component({
-  selector: 'app-package-search',
+  selector: 'app-code-check',
   encapsulation: ViewEncapsulation.None,
-  templateUrl: './package-search.component.html',
+  templateUrl: './code-check.component.html',
   styleUrls: [
     '../../../node_modules/simple-keyboard/build/css/index.css',
-    './package-search.component.scss']
+    './code-check.component.scss',
+  ]
 })
-export class PackageSearchComponent implements OnInit {
+export class CodeCheckComponent implements OnInit {
 
   constructor(
     private location: Location,
-    private router: Router
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
@@ -25,9 +26,17 @@ export class PackageSearchComponent implements OnInit {
   keyboard: Keyboard;
 
   ngAfterViewInit() {
-    this.keyboard = new Keyboard('.package-search-keyboard', {
+    this.keyboard = new Keyboard('.code-check-keyboard', {
       onChange: input => this.onChange(input),
-      onKeyPress: button => this.onKeyPress(button)
+      onKeyPress: button => this.onKeyPress(button),
+      layout: {
+        default: ["1 2 3", "4 5 6", "7 8 9", "{clear} 0 {backspace}"],
+      },
+      theme: "hg-theme-default hg-layout-numeric numeric-theme",
+      display: {
+        "{clear}": "X",
+        "{backspace}": "🡰",
+      }
     });
   }
 
@@ -43,23 +52,14 @@ export class PackageSearchComponent implements OnInit {
   onKeyPress = (button: string) => {
     console.log("Button pressed", button);
 
-    /**
-     * If you want to handle the shift and caps lock buttons
-     */
-    if (button === "{shift}" || button === "{lock}") this.handleShift();
+    if (button === "{clear}") {
+      this.keyboard.clearInput();
+      this.value = '';
+    }
   };
 
   onInputChange = (event: any) => {
     this.keyboard.setInput(event.target.value);
-  };
-
-  handleShift = () => {
-    let currentLayout = this.keyboard.options.layoutName;
-    let shiftToggle = currentLayout === "default" ? "shift" : "default";
-
-    this.keyboard.setOptions({
-      layoutName: shiftToggle
-    });
   };
 
   onSubmit() {

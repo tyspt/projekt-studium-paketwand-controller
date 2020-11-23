@@ -1,0 +1,20 @@
+.code-check-back {
+  position: relative;
+  left: -40px;
+}
+
+.code-check-form,
+.code-check-field {
+  min-width: 200px;
+  width: 80vw;
+  font-size: 3rem;
+}
+
+.keyboard-container {
+  display: flex;
+  justify-content: center;
+
+  .code-check-keyboard {
+    max-width: 50vmin;
+  }
+}
