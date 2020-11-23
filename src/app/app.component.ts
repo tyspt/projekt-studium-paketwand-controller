@@ -8,7 +8,7 @@ import { PywebviewService } from './services/pywebview.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'projekt-studium-paketwand-controller';
+  title = 'projekt-studium-smart-locker-controller';
 
   constructor(private pywebviewService: PywebviewService) { }
 

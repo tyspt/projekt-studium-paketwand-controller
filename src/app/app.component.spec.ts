@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'projekt-studium-paketwand-controller'`, () => {
+  it(`should have as title 'projekt-studium-smart-locker-controller'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('projekt-studium-paketwand-controller');
+    expect(app.title).toEqual('projekt-studium-smart-locker-controller');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('projekt-studium-paketwand-controller app is running!');
+    expect(compiled.querySelector('.content span').textContent).toContain('projekt-studium-smart-locker-controller app is running!');
   });
 });
