@@ -1,5 +1,4 @@
-import os
-import threading
+import os, sys, threading
 import webview
 
 from gpiozero import LED
@@ -37,7 +36,10 @@ entry = get_entrypoint()
 
 
 if __name__ == '__main__':
-    red.on()
-    green.off()
-    window = webview.create_window('Projektstudium Paketwand Controller', entry, js_api=Api(), fullscreen=False)
-    webview.start(http_server=True)
+    try:
+        red.on()
+        green.off()
+        window = webview.create_window('Projektstudium Paketwand Controller', entry, js_api=Api(), fullscreen=False)
+        webview.start(http_server=True)
+    except KeyboardInterrupt:
+        sys.exit(0)
