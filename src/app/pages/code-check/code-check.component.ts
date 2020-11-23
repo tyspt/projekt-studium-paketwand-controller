@@ -3,7 +3,7 @@ import { AfterViewInit, Component, OnInit, ViewEncapsulation } from '@angular/co
 import { Router } from '@angular/router';
 import Keyboard from 'simple-keyboard';
 
-import { PywebviewService } from '../services/pywebview.service';
+import { PywebviewService } from '../../services/pywebview.service';
 
 @Component({
   selector: 'app-code-check',

@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CodeCheckComponent } from './code-check/code-check.component';
 
-import { HompageComponent } from './hompage/hompage.component';
-import { PackageSearchComponent } from './package-search/package-search.component';
+import { CodeCheckComponent } from './pages/code-check/code-check.component';
+import { HompageComponent } from './pages/hompage/hompage.component';
+import { PackageSearchComponent } from './pages/package-search/package-search.component';
 
 const routes: Routes = [
   { path: '', component: HompageComponent },
