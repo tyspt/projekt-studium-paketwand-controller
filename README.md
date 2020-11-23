@@ -31,6 +31,11 @@ To launch the application.
 npm run start
 ```
 
+> Note that sometimes it may be necessary to clean up with sudo >before the start script above can override the old data:
+>``` bash
+>sudo npm run clean
+>```
+
 To build an executable. The output binary will be produced in the `dist` directory.
 
 ``` bash

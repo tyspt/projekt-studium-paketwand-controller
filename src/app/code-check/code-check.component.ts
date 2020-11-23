@@ -1,5 +1,5 @@
 import { Location } from '@angular/common';
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, HostListener, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import Keyboard from 'simple-keyboard';
 
@@ -22,8 +22,14 @@ export class CodeCheckComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  @HostListener('window:pywebviewready', ['$event'])
+  onPywebviewReady(): void {
+    this.api = (window as any).pywebview.api;
+  }
+
   value = "";
   keyboard: Keyboard;
+  api: { unlock_door(): void };
 
   ngAfterViewInit() {
     this.keyboard = new Keyboard('.code-check-keyboard', {
@@ -63,6 +69,7 @@ export class CodeCheckComponent implements OnInit {
   };
 
   onSubmit() {
-    this.router.navigate(['/code']);
+    this.api.unlock_door();
+    this.router.navigate(['/']);
   }
 }

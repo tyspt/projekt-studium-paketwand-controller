@@ -1,4 +1,4 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-hompage',
@@ -10,11 +10,5 @@ export class HompageComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-  }
-
-
-  @HostListener('window:pywebviewready', ['$event'])
-  onPywebviewReady(): void {
-    (window as any).pywebview.api.unlock_door()
   }
 }
