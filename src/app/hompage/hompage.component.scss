@@ -1,16 +1,21 @@
-button {
-  font-size: 400%;
-  line-height: 300%;
-  padding-left: 30px;
-  padding-right: 30px;
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  justify-content: center;
+  margin: -160px 0 0 -160px;
 
-  mat-icon {
-    font-size: 120%;
-    height: 72px;
-    width: 72px;
+  button {
+    font-size: 400%;
+    line-height: 300%;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin: 160px 0 0 160px;
+
+    mat-icon {
+      font-size: 120%;
+      height: 72px;
+      width: 72px;
+    }
   }
-}
-
-.collect-btn {
-  margin-right: 10vw;
 }
