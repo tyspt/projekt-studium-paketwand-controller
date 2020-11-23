@@ -31,7 +31,7 @@ To launch the application.
 npm run start
 ```
 
-> Note that sometimes it may be necessary to clean up with sudo >before the start script above can override the old data:
+> Note that sometimes it may be necessary to clean up the build folders with sudo if you you encounter permission dened issues when running the script above:
 >``` bash
 >sudo npm run clean
 >```
