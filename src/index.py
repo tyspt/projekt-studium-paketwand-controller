@@ -39,7 +39,7 @@ if __name__ == '__main__':
     try:
         red.on()
         green.off()
-        window = webview.create_window('Projektstudium Paketwand Controller', entry, js_api=Api(), fullscreen=False)
+        window = webview.create_window('Projektstudium Paketwand Controller', entry, js_api=Api(), fullscreen=True)
         webview.start(http_server=True)
     except KeyboardInterrupt:
         sys.exit(0)
