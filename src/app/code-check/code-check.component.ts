@@ -1,7 +1,9 @@
 import { Location } from '@angular/common';
-import { Component, HostListener, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import Keyboard from 'simple-keyboard';
+
+import { PywebviewService as PywebviewService } from '../services/pywebview.service';
 
 @Component({
   selector: 'app-code-check',
@@ -17,19 +19,14 @@ export class CodeCheckComponent implements OnInit {
   constructor(
     private location: Location,
     private router: Router,
+    private pywebviewService: PywebviewService
   ) { }
 
   ngOnInit(): void {
   }
 
-  @HostListener('window:pywebviewready', ['$event'])
-  onPywebviewReady(): void {
-    this.api = (window as any).pywebview.api;
-  }
-
   value = "";
   keyboard: Keyboard;
-  api: { unlock_door(): void };
 
   ngAfterViewInit() {
     this.keyboard = new Keyboard('.code-check-keyboard', {
@@ -69,8 +66,8 @@ export class CodeCheckComponent implements OnInit {
   };
 
   onSubmit() {
-    if (this.api) {
-      this.api.unlock_door();
+    if (this.pywebviewService.api) {
+      this.pywebviewService.api.unlock_door();
     } else {
       alert('Python api not available!')
     }

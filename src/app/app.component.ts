@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
+
+import { PywebviewService } from './services/pywebview.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'projekt-studium-paketwand-controller';
+
+  constructor(private pywebviewService: PywebviewService) { }
+
+  @HostListener('window:pywebviewready', ['$event'])
+  onPywebviewReady(): void {
+    this.pywebviewService.api = (window as any).pywebview.api;
+  }
 }
