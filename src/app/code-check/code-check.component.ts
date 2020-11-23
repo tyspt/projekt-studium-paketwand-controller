@@ -66,11 +66,14 @@ export class CodeCheckComponent implements OnInit, AfterViewInit {
   }
 
   onSubmit(): void {
+    console.log(this.value);
     if (this.value === '4711') {
       this.pywebviewService.api ? this.pywebviewService.api.unlock_door() : alert('Python api not available!');
-      this.router.navigate(['/']);
+      alert('Door has been successfully unlocked!');
+      setTimeout(() => this.router.navigate(['/']), 10000);
     } else {
-      alert('Invalid code, please try again!')
+      this.value = '';
+      alert('Invalid code, please try again!');
     }
   }
 }
