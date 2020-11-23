@@ -2,23 +2,20 @@ import os
 import threading
 import webview
 
-from time import time
+from gpiozero import LED
+from time import sleep
 
+red = LED(17)
+green = LED(27)
 
 class Api:
-    def fullscreen(self):
-        webview.windows[0].toggle_fullscreen()
-
-    def save_content(self, content):
-        filename = webview.windows[0].create_file_dialog(webview.SAVE_DIALOG)
-        if not filename:
-            return
-
-        with open(filename, 'w') as f:
-            f.write(content)
-
-    def ls(self):
-        return os.listdir('.')
+    def unlock_door(self):
+        print('Door unlock initiated...')
+        red.off()
+        green.on()
+        sleep(10)
+        red.on()
+        green.off()
 
 
 def get_entrypoint():
@@ -36,32 +33,11 @@ def get_entrypoint():
 
     raise Exception('No index.html found')
 
-
-# def set_interval(interval):
-#     def decorator(function):
-#         def wrapper(*args, **kwargs):
-#             stopped = threading.Event()
-
-#             def loop(): # executed in another thread
-#                 while not stopped.wait(interval): # until stopped
-#                     function(*args, **kwargs)
-
-#             t = threading.Thread(target=loop)
-#             t.daemon = True # stop if the program exits
-#             t.start()
-#             return stopped
-#         return wrapper
-#     return decorator
-
 entry = get_entrypoint()
-
-# @set_interval(1)
-# def update_ticker():
-#     if len(webview.windows) > 0:
-#         webview.windows[0].evaluate_js('window.pywebview.state.setTicker("%d")' % time())
 
 
 if __name__ == '__main__':
-    window = webview.create_window('Projektstudium Paketwand Controller', entry, js_api=Api(), fullscreen=True)
-    # webview.start(update_ticker, debug=True)
+    red.on()
+    green.off()
+    window = webview.create_window('Projektstudium Paketwand Controller', entry, js_api=Api(), fullscreen=False)
     webview.start(http_server=True)

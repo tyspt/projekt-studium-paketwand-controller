@@ -15,6 +15,6 @@ export class HompageComponent implements OnInit {
 
   @HostListener('window:pywebviewready', ['$event'])
   onPywebviewReady(): void {
-
+    (window as any).pywebview.api.unlock_door()
   }
 }
