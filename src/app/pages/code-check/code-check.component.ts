@@ -79,7 +79,7 @@ export class CodeCheckComponent implements OnInit, AfterViewInit {
     if (this.value === '4711') {
       this.pywebviewService.api.unlock_door();
       alert('Door has been successfully unlocked!');
-      setTimeout(() => this.router.navigate(['/']), 10000);
+      setTimeout(() => this.router.navigate(['/']), 5000);
     } else {
       this.handleClearInput();
       alert('Invalid code, please try again!');
