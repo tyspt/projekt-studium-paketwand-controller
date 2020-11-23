@@ -3,8 +3,8 @@
 </button>
 <form class="pacakge-search-form" #packageSearchForm="ngForm" (ngSubmit)="onSubmit()">
   <mat-form-field class="pacakge-search-field">
-    <input type="text" matInput placeholder="Enter Package Tracking Number" [(ngModel)]="value" name="value"
-      (input)="onInputChange($event)">
+    <input class="search-input" type="text" matInput placeholder="Enter Package Tracking Number" [(ngModel)]="value"
+      name="value" (input)="onInputChange($event)">
     <button mat-button matSuffix mat-icon-button>
       <mat-icon>search</mat-icon>
     </button>

@@ -1,6 +1,10 @@
 .pacakge-search-back {
   position: relative;
   left: -40px;
+
+  mat-icon {
+    color: white !important;
+  }
 }
 
 .pacakge-search-form,
@@ -8,4 +12,33 @@
   min-width: 200px;
   width: 80vw;
   font-size: 3rem;
+
+  mat-icon {
+    color: white !important;
+  }
+}
+
+.package-search-keyboard {
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 0;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+
+  .hg-button {
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.3);
+    color: white;
+  }
+
+  .hg-button:active {
+    background: #1c4995;
+    color: white;
+  }
+}
+
+#root .package-search-keyboard+.package-search-keyboard-preview {
+  background: #1c4995;
 }

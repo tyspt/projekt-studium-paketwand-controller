@@ -3,8 +3,8 @@
 </button>
 <form class="code-check-form" #codeCheckForm="ngForm" (ngSubmit)="onSubmit()">
   <mat-form-field class="code-check-field">
-    <input type="number" matInput placeholder="Enter Collection Code" [(ngModel)]="value" name="value"
-      (input)="onInputChange($event)">
+    <input class="code-check-input" type="number" matInput placeholder="Enter Collection Code" [(ngModel)]="value"
+      name="value" (input)="onInputChange($event)">
     <button mat-button matSuffix mat-icon-button>
       <mat-icon>keyboard_return</mat-icon>
     </button>

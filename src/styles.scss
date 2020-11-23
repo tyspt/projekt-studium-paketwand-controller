@@ -2,3 +2,15 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+input,
+input:focus,
+.mat-form-field-empty,
+.mat-form-field-label {
+  color: white !important;
+}
+
+.mat-form-field-underline,
+.mat-form-field-ripple {
+  background-color: white !important;
+}
