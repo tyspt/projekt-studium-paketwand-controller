@@ -1,9 +1,9 @@
 import { Location } from '@angular/common';
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import Keyboard from 'simple-keyboard';
 
-import { PywebviewService as PywebviewService } from '../services/pywebview.service';
+import { PywebviewService } from '../services/pywebview.service';
 
 @Component({
   selector: 'app-code-check',
@@ -14,7 +14,7 @@ import { PywebviewService as PywebviewService } from '../services/pywebview.serv
     './code-check.component.scss',
   ]
 })
-export class CodeCheckComponent implements OnInit {
+export class CodeCheckComponent implements OnInit, AfterViewInit {
 
   constructor(
     private location: Location,
@@ -22,54 +22,54 @@ export class CodeCheckComponent implements OnInit {
     private pywebviewService: PywebviewService
   ) { }
 
+  value = '';
+  keyboard: Keyboard;
+
   ngOnInit(): void {
   }
 
-  value = "";
-  keyboard: Keyboard;
-
-  ngAfterViewInit() {
+  ngAfterViewInit(): void {
     this.keyboard = new Keyboard('.code-check-keyboard', {
       onChange: input => this.onChange(input),
       onKeyPress: button => this.onKeyPress(button),
       layout: {
-        default: ["1 2 3", "4 5 6", "7 8 9", "{clear} 0 {backspace}"],
+        default: ['1 2 3', '4 5 6', '7 8 9', '{clear} 0 {backspace}'],
       },
-      theme: "hg-theme-default hg-layout-numeric numeric-theme",
+      theme: 'hg-theme-default hg-layout-numeric numeric-theme',
       display: {
-        "{clear}": "X",
-        "{backspace}": "🡰",
+        '{clear}': 'X',
+        '{backspace}': '🡰',
       }
     });
   }
 
-  onBack() {
+  onBack(): void {
     this.location.back();
   }
 
   onChange = (input: string) => {
     this.value = input;
-    console.log("Input changed", input);
-  };
+    console.log('Input changed', input);
+  }
 
   onKeyPress = (button: string) => {
-    console.log("Button pressed", button);
+    console.log('Button pressed', button);
 
-    if (button === "{clear}") {
+    if (button === '{clear}') {
       this.keyboard.clearInput();
       this.value = '';
     }
-  };
+  }
 
   onInputChange = (event: any) => {
     this.keyboard.setInput(event.target.value);
-  };
+  }
 
-  onSubmit() {
+  onSubmit(): void {
     if (this.pywebviewService.api) {
       this.pywebviewService.api.unlock_door();
     } else {
-      alert('Python api not available!')
+      alert('Python api not available!');
     }
     this.router.navigate(['/']);
   }
