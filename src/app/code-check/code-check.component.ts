@@ -33,12 +33,12 @@ export class CodeCheckComponent implements OnInit, AfterViewInit {
       onChange: input => this.onChange(input),
       onKeyPress: button => this.onKeyPress(button),
       layout: {
-        default: ['1 2 3', '4 5 6', '7 8 9', '{clear} 0 {backspace}'],
+        default: ['1 2 3', '4 5 6', '7 8 9', '{backspace} 0 {enter}'],
       },
       theme: 'hg-theme-default hg-layout-numeric numeric-theme',
       display: {
-        '{clear}': 'X',
-        '{backspace}': '🡰',
+        '{backspace}': '⌫',
+        '{enter}': '↵'
       }
     });
   }
@@ -56,8 +56,11 @@ export class CodeCheckComponent implements OnInit, AfterViewInit {
     console.log('Button pressed', button);
 
     if (button === '{clear}') {
-      this.keyboard.clearInput();
-      this.value = '';
+      this.handleClearInput();
+    }
+
+    if (button === '{enter}') {
+      this.onSubmit();
     }
   }
 
@@ -65,14 +68,20 @@ export class CodeCheckComponent implements OnInit, AfterViewInit {
     this.keyboard.setInput(event.target.value);
   }
 
+  handleClearInput = () => {
+    this.keyboard.clearInput();
+    this.value = '';
+  }
+
   onSubmit(): void {
-    console.log(this.value);
+    if (!this.value?.trim()) { return; }
+
     if (this.value === '4711') {
-      this.pywebviewService.api ? this.pywebviewService.api.unlock_door() : alert('Python api not available!');
+      this.pywebviewService.api.unlock_door();
       alert('Door has been successfully unlocked!');
       setTimeout(() => this.router.navigate(['/']), 10000);
     } else {
-      this.value = '';
+      this.handleClearInput();
       alert('Invalid code, please try again!');
     }
   }

@@ -27,7 +27,7 @@ export class PackageSearchComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
     this.keyboard = new Keyboard('.package-search-keyboard', {
       onChange: input => this.onChange(input),
-      onKeyPress: button => this.onKeyPress(button)
+      onKeyPress: button => this.onKeyPress(button),
     });
   }
 
@@ -45,6 +45,10 @@ export class PackageSearchComponent implements OnInit, AfterViewInit {
      * If you want to handle the shift and caps lock buttons
      */
     if (button === '{shift}' || button === '{lock}') { this.handleShift(); }
+
+    if (button === '{enter}') {
+      this.onSubmit();
+    }
   }
 
   onInputChange = (event: any) => {
@@ -60,6 +64,8 @@ export class PackageSearchComponent implements OnInit, AfterViewInit {
     });
   }
 
-  onSubmit = () =>
-    this.router.navigate(['/code'])
+  onSubmit = () => {
+    if (!this.value?.trim()) { return; }
+    this.router.navigate(['/code']);
+  }
 }
