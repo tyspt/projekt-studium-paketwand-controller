@@ -1,6 +1,8 @@
 import { Location } from '@angular/common';
 import { AfterViewInit, Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable, of } from 'rxjs';
+import { delay } from 'rxjs/operators';
 import Keyboard from 'simple-keyboard';
 
 @Component({
@@ -18,13 +20,16 @@ export class PackageSearchComponent implements OnInit, AfterViewInit {
     private router: Router
   ) { }
 
+  loaded$: Observable<boolean> = of(true).pipe(delay(500));
+
   value = '';
   keyboard: Keyboard;
 
   ngOnInit(): void {
   }
 
-  ngAfterViewInit(): void {
+  async ngAfterViewInit(): Promise<void> {
+    await this.loaded$.toPromise();
     this.keyboard = new Keyboard('.package-search-keyboard', {
       onChange: input => this.onChange(input),
       onKeyPress: button => this.onKeyPress(button),

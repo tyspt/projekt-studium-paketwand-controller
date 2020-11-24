@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <title>Projektstudium Smart Locker Controller</title>
@@ -8,8 +9,78 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- Styles for loading spinner displayed before project initialization -->
+  <style>
+    .loading-info-container {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .loading-info-container .spinner {
+      display: inline-block;
+      position: relative;
+      width: 100px;
+      height: 100px;
+      margin-bottom: 24px;
+    }
+
+    .loading-info-container .spinner div {
+      box-sizing: border-box;
+      display: block;
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      margin: 8px;
+      border: 8px solid var(--primary_color);
+      border-radius: 50%;
+      animation: spinner-animation 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+      border-color: var(--primary_color) transparent transparent transparent;
+    }
+
+    .loading-info-container .spinner div:nth-child(1) {
+      animation-delay: -0.45s;
+    }
+
+    .loading-info-container .spinner div:nth-child(2) {
+      animation-delay: -0.3s;
+    }
+
+    .loading-info-container .spinner div:nth-child(3) {
+      animation-delay: -0.15s;
+    }
+
+    @keyframes spinner-animation {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+  </style>
 </head>
+
 <body class="mat-typography">
-  <app-root></app-root>
+  <app-root>
+    <div class="loading-info-container">
+      <!-- A loading spinner is displayed while angular before project initialization, @see https://github.com/loadingio/css-spinner/ -->
+      <div class="spinner">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <span>Loading...</span>
+    </div>
+  </app-root>
 </body>
+
 </html>

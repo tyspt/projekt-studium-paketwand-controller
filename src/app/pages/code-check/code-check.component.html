@@ -1,15 +1,21 @@
-<button mat-icon-button class="code-check-back" (click)="onBack()">
-  <mat-icon>arrow_back</mat-icon>
-</button>
-<form class="code-check-form" #codeCheckForm="ngForm" (ngSubmit)="onSubmit()">
-  <mat-form-field class="code-check-field">
-    <input class="code-check-input" type="number" matInput placeholder="Enter Collection Code" [(ngModel)]="value"
-      name="value" (input)="onInputChange($event)">
-    <button mat-button matSuffix mat-icon-button>
-      <mat-icon>keyboard_return</mat-icon>
-    </button>
-  </mat-form-field>
-</form>
-<div class="keyboard-container">
-  <div class="code-check-keyboard"></div>
-</div>
+<ng-container *ngIf="loaded$ | async else loading">
+  <button mat-icon-button class="code-check-back" (click)="onBack()">
+    <mat-icon>arrow_back</mat-icon>
+  </button>
+  <form class="code-check-form" #codeCheckForm="ngForm" (ngSubmit)="onSubmit()">
+    <mat-form-field class="code-check-field">
+      <input class="code-check-input" type="number" matInput placeholder="Enter Collection Code" [(ngModel)]="value"
+        name="value" (input)="onInputChange($event)">
+      <button mat-button matSuffix mat-icon-button>
+        <mat-icon>keyboard_return</mat-icon>
+      </button>
+    </mat-form-field>
+  </form>
+  <div class="keyboard-container">
+    <div class="code-check-keyboard"></div>
+  </div>
+</ng-container>
+
+<ng-template #loading>
+  <mat-spinner></mat-spinner>
+</ng-template>

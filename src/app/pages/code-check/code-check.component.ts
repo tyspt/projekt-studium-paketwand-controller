@@ -1,6 +1,8 @@
 import { Location } from '@angular/common';
 import { AfterViewInit, Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable, of } from 'rxjs';
+import { delay } from 'rxjs/operators';
 import Keyboard from 'simple-keyboard';
 
 import { PywebviewService } from '../../services/pywebview.service';
@@ -22,13 +24,16 @@ export class CodeCheckComponent implements OnInit, AfterViewInit {
     private pywebviewService: PywebviewService
   ) { }
 
+  loaded$: Observable<boolean> = of(true).pipe(delay(500));
+
   value = '';
   keyboard: Keyboard;
 
   ngOnInit(): void {
   }
 
-  ngAfterViewInit(): void {
+  async ngAfterViewInit(): Promise<void> {
+    await this.loaded$.toPromise();
     this.keyboard = new Keyboard('.code-check-keyboard', {
       onChange: input => this.onChange(input),
       onKeyPress: button => this.onKeyPress(button),

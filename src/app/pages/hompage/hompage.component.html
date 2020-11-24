@@ -1,4 +1,4 @@
-<div class="container">
+<div *ngIf="loaded$ | async else loading" class="container">
   <button mat-raised-button color="primary" routerLink="search/inbound">
     <mat-icon>get_app</mat-icon>Pick up Package
   </button>
@@ -6,3 +6,6 @@
     <mat-icon>publish</mat-icon>Send Package
   </button>
 </div>
+<ng-template #loading>
+  <mat-spinner></mat-spinner>
+</ng-template>

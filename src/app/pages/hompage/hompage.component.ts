@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable, of } from 'rxjs';
+import { delay } from 'rxjs/operators';
 
 @Component({
   selector: 'app-hompage',
@@ -6,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./hompage.component.scss']
 })
 export class HompageComponent implements OnInit {
+
+  loaded$: Observable<boolean> = of(true).pipe(delay(1000));
 
   constructor() { }
 
